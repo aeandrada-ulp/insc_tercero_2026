@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fase 2 – Diseño de la Solución y Uso Reflexivo de IA</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f7f6f2;--card:#fff;--ink:#1d2433;--mute:#5d6678;--acc:#1f6feb;--acc2:#e8f0fe;--line:#dcdfe6;--ok:#1a7f4b}
+@media (prefers-color-scheme:dark){:root{--bg:#12161f;--card:#1b2130;--ink:#e8ebf2;--mute:#9aa4b8;--acc:#6aa3ff;--acc2:#22304d;--line:#2d3649;--ok:#4cc38a}}
+html{scroll-padding-top:70px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--acc);color:#fff;padding:30px 20px;text-align:center}
+header a{color:#fff;opacity:.9;font-size:.9rem}
+header small{opacity:.85;letter-spacing:.08em;text-transform:uppercase}
+header h1{margin:6px 0 4px;font-size:1.7rem;line-height:1.25}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;padding:8px 12px;justify-content:center}
+nav a{white-space:nowrap;color:var(--ink);text-decoration:none;padding:6px 12px;border-radius:99px;font-size:.9rem}
+nav a:hover{background:var(--acc2)}
+main{max-width:820px;margin:0 auto;padding:20px 16px 60px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:18px 0}
+h2{margin:0 0 10px;font-size:1.35rem}
+h3{margin:18px 0 6px;font-size:1.1rem;color:var(--acc)}
+.callout{background:var(--acc2);border-left:4px solid var(--acc);padding:10px 14px;border-radius:8px;margin:12px 0}
+pre{background:var(--acc2);padding:12px 14px;border-radius:8px;overflow-x:auto;font-size:.88rem;line-height:1.5}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+td:first-child{font-weight:600;background:var(--acc2)}
+label{display:block;font-weight:600;margin:14px 0 4px;font-size:.95rem}
+input,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+input:focus,textarea:focus{outline:2px solid var(--acc);border-color:transparent}
+textarea{min-height:76px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.br{border:1px dashed var(--line);border-radius:10px;padding:4px 12px 12px;margin:12px 0}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+button{font:inherit;font-weight:600;border:0;border-radius:10px;padding:11px 18px;cursor:pointer;background:var(--acc);color:#fff}
+button.alt{background:var(--acc2);color:var(--acc)}
+#msg{margin-top:12px;min-height:1.4em;color:var(--ok);font-weight:600}
+#msg.err{color:#d1453b}
+footer{text-align:center;color:var(--mute);font-size:.85rem;padding-bottom:30px}
+@media print{nav,.btns,#msg{display:none}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><a href="index.html">← Todas las fases</a><br><small>Cuadernillo · Fase 2</small><h1>Diseño de la Solución y Uso Reflexivo de Inteligencia Artificial</h1><div>Educación Tecnológica y Ciencias de la Computación · 3.er Año A / B</div></header>
+<nav><a href="#s0">0. Equipo</a><a href="#s1">1. Lógica del diseño</a><a href="#s2">2. IA en el proyecto</a><a href="#s3">3. Actividades</a><a href="#act">Mi trabajo</a></nav>
+<main>
+<div id="content"></div>
+<section id="act">
+<h2>✍️ Mi trabajo del equipo</h2>
+<p>Lo que escribas se guarda solo en este navegador. Al terminar, descargalo.</p>
+<h3>Acta de equipo · Actividad 0</h3>
+<div class="row"><div><label for="curso">Curso</label><input id="curso"></div><div><label for="coord">Coordinador/a de la Fase 2</label><input id="coord"></div></div>
+<div id="equipoBox"></div>
+<h3>Actividad 1 · Pseudocódigo de la solución</h3>
+<p>El diagrama de flujo lo dibujan en el cuaderno. Acá escriban el pseudocódigo.</p>
+<textarea id="a1" style="min-height:200px;font-family:monospace"></textarea>
+<h3>Actividad 2 · Prompt R.C.I.F.</h3>
+<label for="r">[R] Rol</label><textarea id="r"></textarea>
+<label for="c">[C] Contexto</label><textarea id="c"></textarea>
+<label for="i">[I] Instrucción</label><textarea id="i"></textarea>
+<label for="f">[F] Formato</label><textarea id="f"></textarea>
+<label for="a2">Análisis de la respuesta: ¿es viable con nuestros materiales? ¿la entendemos?</label><textarea id="a2"></textarea>
+<h3>Actividad 3 · Bitácora de Uso de IA</h3>
+<div id="bit"></div>
+<div class="btns"><button class="alt" id="bAdd">+ Agregar fila a la bitácora</button></div>
+<div class="btns">
+<button id="bDocx">⬇ Guardar en Word (.docx)</button>
+<button id="bTxt" class="alt">⬇ Guardar en texto (.txt)</button>
+<button id="bPrint" class="alt">🖨 Imprimir / PDF</button>
+<button id="bClear" class="alt">Borrar mi trabajo</button>
+</div>
+<div id="msg" role="status"></div>
+</section>
+</main>
+<footer>Fase 2 · Docente: Esp. Ing. Astri Edith Andrada Tivani</footer>
+<script>
+const DOC_TITLE="Fase 2 - Diseño de la Solución y Uso Reflexivo de IA";
+const C=[
+{t:'h2',id:'s0',x:'0. Organización del equipo: coordinación y roles'},
+{t:'p',x:'Desde esta fase trabajan en equipos de **hasta 5 integrantes**. Un proyecto avanza mejor cuando cada persona sabe qué le toca hacer y quién coordina. Por eso, antes de empezar, el equipo debe **elegir un coordinador/a**, **definir los roles** y dejarlo **asentado por escrito**.'},
+{t:'h3',x:'El rol del coordinador/a (líder de la fase)'},
+{t:'ul',i:['Organiza las reuniones y verifica que todos sepan qué tarea tienen.','Controla los tiempos y que se cumplan las entregas.','Es el nexo con la docente: presenta las dudas y los avances del equipo.','Promueve que todos participen y que las decisiones se tomen en conjunto.','**No hace todo el trabajo:** coordinar es ayudar a que el equipo funcione.']},
+{t:'h3',x:'Roles sugeridos'},
+{t:'table',rows:[['Rol','Responsabilidad'],
+['Coordinador/a','Organiza al equipo, controla tiempos y entregas, y se comunica con la docente.'],
+['Responsable de diseño lógico','Lidera el diagrama de flujo y el pseudocódigo (Actividad 1).'],
+['Responsable de IA y bitácora','Redacta los prompts R.C.I.F. y mantiene al día la Bitácora de Uso de IA (Actividades 2 y 3).'],
+['Responsable de documentación','Reúne y ordena todo en la carpeta/documento del proyecto.'],
+['Responsable de pruebas y materiales','Verifica que lo diseñado sea viable con los materiales disponibles y revisa errores.']]},
+{t:'note',x:'📌 **Reglas del equipo:** (1) Debe haber, como mínimo, **un coordinador/a**. (2) Si son menos de 5, una persona puede tener más de un rol. (3) Cada integrante **escribe la responsabilidad concreta** que asume. (4) Conviene **rotar los roles** entre fases para que todos practiquen la coordinación. (5) Un rol no exime de entender el proyecto completo: en la presentación oral cada integrante debe poder explicarlo.'},
+{t:'h3',x:'📝 Actividad 0: acta de equipo'},
+{t:'p',x:'Antes de la Actividad 1, completen en la sección **Mi trabajo del equipo** quién coordina y el rol y la responsabilidad de cada integrante.'},
+{t:'h2',id:'s1',x:'1. La lógica del diseño antes de la programación'},
+{t:'h3',x:'1.1. ¿Por qué diseñamos antes de programar o armar circuitos?'},
+{t:'p',x:'Programar o conectar componentes sin una planificación previa suele provocar:'},
+{t:'ul',i:['Errores difíciles de detectar y corregir en el código.','Pérdida de tiempo intentando descifrar el programa sobre la marcha.','Frustración en el trabajo en equipo por falta de una guía clara.']},
+{t:'p',x:'**Diseñar** significa construir el **algoritmo** de nuestra solución: una **secuencia finita, ordenada, lógica e inequívoca de pasos** que permiten resolver un problema o cumplir una tarea.'},
+{t:'h3',x:'1.2. Herramienta 1: el diagrama de flujo'},
+{t:'p',x:'Un **diagrama de flujo** es la representación gráfica de los pasos de un algoritmo mediante símbolos estandarizados conectados por flechas que indican el sentido de ejecución.'},
+{t:'table',rows:[['Símbolo','Función dentro del algoritmo','Ejemplo práctico'],
+['⬭ Terminal (óvalo)','Indica el **Inicio** o el **Fin**.','Inicio / Fin'],
+['▱ Entrada / Salida (paralelogramo)','Lectura de datos de un sensor o muestra de un resultado.','Leer sensor_humedad / Mostrar "Suelo seco"'],
+['▭ Proceso (rectángulo)','Acción, cálculo, asignación de valor o modificación de una variable.','Contador = Contador + 1'],
+['◇ Decisión (rombo)','Condición con dos caminos: **Sí** (verdadero) o **No** (falso).','¿Humedad < 30%?'],
+['→ Líneas de flujo (flechas)','Muestran el orden y la dirección exacta de ejecución.','↓ →']]},
+{t:'h3',x:'1.3. Herramienta 2: el pseudocódigo'},
+{t:'p',x:'El **pseudocódigo** es la redacción informal de un algoritmo con lenguaje humano mezclado con estructuras de programación. No sigue las reglas estrictas de C++ o Python, pero exige un orden estricto de lectura de arriba hacia abajo.'},
+{t:'p',x:'**Estructuras de control indispensables:**'},
+{t:'ol',i:['**Estructura secuencial:** instrucciones ejecutadas una tras otra en orden lineal.','**Estructura condicional (Si ... Entonces ... Sino):** permite tomar decisiones según se cumpla o no una condición.','**Manejo de eventos (Al presionar botón, Al detectar presencia):** modifica el comportamiento según la interacción directa.','**Estructura de repetición / bucle (Repetir continuamente, Mientras):** ejecuta un bloque de acciones en ciclo constante.']},
+{t:'h3',x:'💡 Ejemplo completo: "Luz automática para pasillo"'},
+{t:'p',x:'**Problema:** iluminar un pasillo escolar oscuro únicamente cuando se detecte presencia de una persona y la luz natural sea baja, ahorrando energía.'},
+{t:'code',x:'INICIO\n    // Inicialización de variables y pines\n    Establecer Tiempo_Espera = 10 segundos\n\n    REPETIR CONTINUAMENTE (Bucle principal):\n        Leer Nivel_Luz desde Sensor_LDR\n        Leer Presencia desde Sensor_PIR\n\n        SI (Presencia == VERDADERO) Y (Nivel_Luz < 400) ENTONCES:\n            Activar Tira_LED\n            Escribir "Luz encendida por detección"\n            Esperar Tiempo_Espera\n            Desactivar Tira_LED\n        SINO:\n            Desactivar Tira_LED\n            Escribir "Pasillo iluminado o sin personas"\n        FIN SI\nFIN'},
+{t:'h2',id:'s2',x:'2. Uso de la Inteligencia Artificial (IA) en el proyecto'},
+{t:'h3',x:'2.1. El rol de la IA en el aula'},
+{t:'p',x:'Los modelos de lenguaje (como ChatGPT, Gemini o Claude) actuarán como **asistentes de investigación, co-diseñadores lógicos y revisores de código**.'},
+{t:'note',x:'⚠️ **REGLA DE ORO:** la IA es una **herramienta de apoyo**, no el autor del proyecto. Cada decisión técnica, diagramación final y validación debe ser asumida, comprendida y justificada por los integrantes del equipo.'},
+{t:'h3',x:'2.2. Ingeniería de prompts: el arte de saber preguntar'},
+{t:'p',x:'Un **prompt** es el conjunto de instrucciones que ingresamos a una IA para guiar su respuesta. Una pregunta vaga genera respuestas imprecisas o inservibles. La estructura **R.C.I.F.** ayuda a armarlo:'},
+{t:'ul',i:['**[R] ROL:** define la función experta de la IA.','**[C] CONTEXTO:** explica tu problema, tu nivel educativo y tus recursos.','**[I] INSTRUCCIÓN:** detalla la tarea exacta que necesitás.','**[F] FORMATO:** especifica cómo querés la respuesta y sus límites.']},
+{t:'h3',x:'Ejemplo 1: consulta de lógica y algoritmos'},
+{t:'ul',i:['❌ **Prompt incorrecto (vago):** "Dame el pseudocódigo para un riego automático con Arduino." No sirve porque la IA generará código avanzado con librerías que el grupo no sabrá explicar en la presentación oral (IPI).','✅ **Prompt correcto (R.C.I.F.):** "Actúa como una profesora especializada en Educación Tecnológica de nivel secundario [ROL]. Somos estudiantes de 3.er año trabajando en un riego automatizado para la huerta de la escuela con Arduino y un sensor de humedad de suelo [CONTEXTO]. Escribe el pseudocódigo en español: si la humedad cae por debajo del 30% debe activar una bomba durante 5 segundos y esperar 10 minutos antes de medir de nuevo [INSTRUCCIÓN]. Usa solo condicionales simples y bucles básicos, en bloque de texto con comentarios línea por línea [FORMATO]."']},
+{t:'h3',x:'Ejemplo 2: corrección y depuración de errores'},
+{t:'p',x:'✅ "Actúa como un tutor de programación en Scratch [ROL]. Mi personaje debe contar la basura recolectada, pero el contador suma de a 10 en lugar de a 1 [CONTEXTO]. Te comparto mi lógica: [insertar bloques/texto]. Analiza dónde está el error, explícame por qué ocurre y sugiere cómo solucionarlo sin darme todo el proyecto resuelto [INSTRUCCIÓN Y FORMATO]."'},
+{t:'h3',x:'2.3. Registro obligatorio: la Bitácora de Uso de IA'},
+{t:'p',x:'Cada equipo debe incorporar una **Bitácora de Uso de IA**. Demuestra que el grupo sabe formular preguntas, evaluar las respuestas y tomar decisiones propias. Columnas: **N.º · Fecha · Integrante a cargo · Prompt enviado (texto exacto) · Respuesta/sugerencia de la IA (resumen) · Evaluación y decisión del grupo.**'},
+{t:'ul',i:['**Fila 1** (15/10, Juan Pérez): prompt "Actúa como experto en electrónica... ¿Qué sensor conviene para medir distancias en un contenedor de basura?" → La IA sugirió el HC-SR04 y el TCRT5000 con pros y contras. **Decisión:** elegimos el HC-SR04 porque no le afecta el color de la basura y mide hasta 4 metros.','**Fila 2** (18/10, María Gómez): prompt "Revisa este pseudocódigo para abrir una puerta automática y dime si falta algún paso de seguridad." → Notó que la puerta podía cerrarse si el usuario se quedaba parado en el medio. **Ajuste:** agregamos una pausa de 3 segundos mientras el sensor detecte presencia.']},
+{t:'h2',id:'s3',x:'3. Guía de actividades prácticas'},
+{t:'h3',x:'📝 Actividad 1: representación lógica de la solución'},
+{t:'p',x:'En grupo (máximo 5 integrantes), tomen la propuesta aprobada en la Fase 1 y desarrollen en sus cuadernos:'},
+{t:'ol',i:['El **diagrama de flujo completo** de la solución, con la simbología normalizada.','El **pseudocódigo estructurado**, identificando variables, entradas de sensores, condiciones (SI / SINO) y salidas hacia actuadores o pantallas.']},
+{t:'h3',x:'📝 Actividad 2: aplicación R.C.I.F. y primera interacción con IA'},
+{t:'ol',i:['Redacten un **prompt estructurado** con R.C.I.F. para consultar a una IA sobre la optimización o validación del pseudocódigo de la Actividad 1.','Ingresen el prompt en la IA elegida (ChatGPT, Gemini, etc.).','Analicen la respuesta en grupo: ¿es técnicamente viable con los materiales que tienen? ¿Es comprensible para ustedes?']},
+{t:'h3',x:'📝 Actividad 3: apertura formal de la bitácora'},
+{t:'p',x:'Creen la **Bitácora de Uso de IA** e ingresen la primera fila con la interacción de la Actividad 2. Este registro será evaluado en la **Instancia de Producción Individual (IPI)**.'}
+];
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const md=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+const plain=s=>s.replace(/\*\*/g,'');
+
+/* ---- render ---- */
+(function(){
+ let h='',open=false;
+ for(const b of C){
+  if(b.t==='h2'){if(open)h+='</section>';h+=`<section${b.id?` id="${b.id}"`:''}><h2>${md(b.x)}</h2>`;open=true}
+  else if(b.t==='h3')h+=`<h3>${md(b.x)}</h3>`;
+  else if(b.t==='p')h+=`<p>${md(b.x)}</p>`;
+  else if(b.t==='note')h+=`<div class="callout">${md(b.x)}</div>`;
+  else if(b.t==='code')h+=`<pre>${esc(b.x)}</pre>`;
+  else if(b.t==='ul')h+='<ul>'+b.i.map(i=>`<li>${md(i)}</li>`).join('')+'</ul>';
+  else if(b.t==='ol')h+='<ol>'+b.i.map(i=>`<li>${md(i)}</li>`).join('')+'</ol>';
+  else if(b.t==='table')h+='<div class="tw"><table>'+b.rows.map((r,n)=>'<tr>'+r.map(c=>n?`<td>${md(c)}</td>`:`<th>${md(c)}</th>`).join('')+'</tr>').join('')+'</table></div>';
+ }
+ if(open)h+='</section>';
+ $('content').innerHTML=h;
+})();
+
+/* ---- trabajo del equipo ---- */
+const M=[1,2,3,4,5];
+const F=['curso','coord','a1','r','c','i','f','a2',...M.flatMap(k=>['m'+k+'n','m'+k+'r','m'+k+'t'])];
+const L={curso:'Curso',coord:'Coordinador/a de la Fase 2',a1:'Actividad 1 – Pseudocódigo de la solución',r:'[R] Rol',c:'[C] Contexto',i:'[I] Instrucción',f:'[F] Formato',a2:'Análisis de la respuesta de la IA'};
+$('equipoBox').innerHTML=M.map(k=>`<div class="br"><label>Integrante ${k}${k>1?' (si corresponde)':''}</label><div class="row"><div><label for="m${k}n">Nombre</label><input id="m${k}n"></div><div><label for="m${k}r">Rol</label><input id="m${k}r" list="roles"></div></div><label for="m${k}t">Responsabilidad que asume en esta fase</label><textarea id="m${k}t" style="min-height:56px"></textarea></div>`).join('')+'<datalist id="roles"><option value="Coordinador/a"><option value="Responsable de diseño lógico"><option value="Responsable de IA y bitácora"><option value="Responsable de documentación"><option value="Responsable de pruebas y materiales"></datalist>';
+const BL=['Fecha','Integrante a cargo','Prompt enviado (texto exacto)','Respuesta / sugerencia de la IA (resumen)','Evaluación y decisión del grupo'];
+function addRow(v=[]){
+ const d=document.createElement('div');d.className='br';
+ d.innerHTML='<label>Fila <span class="n"></span></label>'+BL.map((l,k)=>`<label>${l}</label>${k>1?'<textarea></textarea>':'<input>'}`).join('');
+ d.querySelectorAll('input,textarea').forEach((e,k)=>{e.value=v[k]||'';e.addEventListener('input',save)});
+ $('bit').appendChild(d);num();
+}
+function num(){document.querySelectorAll('#bit .n').forEach((s,k)=>s.textContent=k+1)}
+const rows=()=>[...document.querySelectorAll('#bit .br')].map(d=>[...d.querySelectorAll('input,textarea')].map(e=>e.value.trim()));
+function save(){try{localStorage.setItem('n4f2',JSON.stringify({f:Object.fromEntries(F.map(k=>[k,$(k).value])),b:rows()}))}catch(e){}}
+try{const s=JSON.parse(localStorage.getItem('n4f2')||'{}');F.forEach(k=>{if(s.f&&s.f[k])$(k).value=s.f[k]});(s.b||[]).forEach(r=>addRow(r))}catch(e){}
+if(!document.querySelector('#bit .br'))addRow();
+F.forEach(k=>$(k).addEventListener('input',save));
+$('bAdd').onclick=()=>{addRow();save()};
+function answers(){
+ const g=k=>$(k).value.trim()||'(sin completar)',o=[];
+ o.push(['#Equipo y roles',''],['Curso',g('curso')],['Coordinador/a de la Fase 2',g('coord')]);
+ M.forEach(k=>{if($('m'+k+'n').value.trim())o.push(['#Integrante '+k,''],['Nombre',g('m'+k+'n')],['Rol',g('m'+k+'r')],['Responsabilidad asumida',g('m'+k+'t')])});
+ ['a1','r','c','i','f','a2'].forEach(k=>o.push([L[k],g(k)]));
+ rows().forEach((r,n)=>{o.push(['#Bitácora de IA – Fila '+(n+1),'']);BL.forEach((l,k)=>o.push([l,r[k]||'(sin completar)']))});
+ return o;
+}
+
+/* ---- exportadores ---- */
+function toTxt(){
+ let o=DOC_TITLE.toUpperCase()+'\n'+'='.repeat(40)+'\n';
+ for(const b of C){
+  if(b.t==='h2')o+='\n\n'+plain(b.x).toUpperCase()+'\n';
+  else if(b.t==='h3')o+='\n'+plain(b.x)+'\n';
+  else if(b.t==='p'||b.t==='note')o+=plain(b.x)+'\n';
+  else if(b.t==='code')o+=b.x+'\n';
+  else if(b.t==='ul')o+=b.i.map(i=>'  • '+plain(i)).join('\n')+'\n';
+  else if(b.t==='ol')o+=b.i.map((i,n)=>`  ${n+1}. `+plain(i)).join('\n')+'\n';
+  else if(b.t==='table')o+=b.rows.slice(1).map(r=>'  • '+r.map(plain).join(' | ')).join('\n')+'\n';
+ }
+ o+='\n\nMI TRABAJO DEL EQUIPO\n'+'='.repeat(40)+'\n';
+ answers().forEach(([l,v])=>{o+=l[0]==='#'?'\n'+l.slice(1)+'\n':'\n'+l+':\n'+v+'\n'});
+ return o+'\nFecha: '+new Date().toLocaleDateString('es-AR')+'\n';
+}
+const X=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function runs(s,o={}){
+ return s.split(/\*\*/).map((t,i)=>{if(!t)return'';const b=(i%2||o.b)?'<w:b/>':'';const fo=o.f?'<w:rFonts w:ascii="Courier New" w:hAnsi="Courier New"/>':'';const c=o.c?`<w:color w:val="${o.c}"/>`:'';const z=o.sz?`<w:sz w:val="${o.sz}"/>`:'';return `<w:r><w:rPr>${fo}${b}${c}${z}</w:rPr><w:t xml:space="preserve">${X(t)}</w:t></w:r>`}).join('');
+}
+function para(s,o={}){const ind=o.ind?`<w:ind w:left="${o.ind}" w:hanging="${o.hang||0}"/>`:'';return `<w:p><w:pPr><w:spacing w:before="${o.bf||0}" w:after="${o.af??120}"/>${ind}</w:pPr>${runs(s,o)}</w:p>`}
+function docxBody(){
+ let b=para(DOC_TITLE,{b:1,sz:34,c:'1F4FA3',af:200});
+ for(const k of C){
+  if(k.t==='h2')b+=para(k.x,{b:1,sz:30,c:'1F4FA3',bf:260,af:100});
+  else if(k.t==='h3')b+=para(k.x,{b:1,sz:26,c:'2B6CB0',bf:160,af:80});
+  else if(k.t==='p')b+=para(k.x,{sz:24});
+  else if(k.t==='note')b+=para(k.x,{sz:24,c:'1F4FA3'});
+  else if(k.t==='code')k.x.split('\n').forEach(l=>b+=para(l.replace(/ /g,'\u00A0'),{sz:20,f:1,af:0}));
+  else if(k.t==='ul')k.i.forEach(i=>b+=para('•\u00A0\u00A0'+i,{sz:24,ind:600,hang:300,af:80}));
+  else if(k.t==='ol')k.i.forEach((i,n)=>b+=para(`${n+1}.\u00A0\u00A0`+i,{sz:24,ind:1000,hang:300,af:80}));
+  else if(k.t==='table'){
+   const n=k.rows[0].length,w=j=>j?Math.floor(6300/(n-1)):2700;
+   const bd=['top','left','bottom','right','insideH','insideV'].map(s=>`<w:${s} w:val="single" w:sz="4" w:color="999999"/>`).join('');
+   b+=`<w:tbl><w:tblPr><w:tblW w:w="9000" w:type="dxa"/><w:tblBorders>${bd}</w:tblBorders></w:tblPr><w:tblGrid>`+k.rows[0].map((_,j)=>`<w:gridCol w:w="${w(j)}"/>`).join('')+'</w:tblGrid>';
+   k.rows.forEach((r,m)=>{b+='<w:tr>'+r.map((c,j)=>`<w:tc><w:tcPr><w:tcW w:w="${w(j)}" w:type="dxa"/>${(m===0||j===0)?'<w:shd w:val="clear" w:color="auto" w:fill="E8F0FE"/>':''}</w:tcPr>${para(c,{sz:22,b:(m===0||j===0),af:60})}</w:tc>`).join('')+'</w:tr>'});
+   b+='</w:tbl>'+para('',{af:60});
+  }
+ }
+ b+=para('Mi trabajo del equipo',{b:1,sz:30,c:'1F4FA3',bf:360,af:100});
+ answers().forEach(([l,v])=>{
+  if(l[0]==='#')b+=para(l.slice(1),{b:1,sz:26,c:'2B6CB0',bf:200,af:60});
+  else{b+=para('**'+l+':**',{sz:24,af:30});v.split('\n').forEach(x=>b+=para(x,{sz:24,af:40,c:v.startsWith('(sin')?'888888':'000000'}))}
+ });
+ return b+para('Fecha: '+new Date().toLocaleDateString('es-AR'),{sz:20,c:'666666',bf:200});
+}
+function crc(b){let t=crc.t;if(!t){t=crc.t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}}let r=-1;for(let i=0;i<b.length;i++)r=t[(r^b[i])&255]^(r>>>8);return(r^-1)>>>0}
+function zip(files){
+ const enc=new TextEncoder(),parts=[],cd=[];let off=0;
+ for(const[name,str]of files){
+  const nb=enc.encode(name),d=enc.encode(str),c=crc(d);
+  const lh=new DataView(new ArrayBuffer(30));
+  lh.setUint32(0,0x04034b50,true);lh.setUint16(4,20,true);lh.setUint16(6,0x0800,true);lh.setUint16(12,0x21,true);lh.setUint32(14,c,true);lh.setUint32(18,d.length,true);lh.setUint32(22,d.length,true);lh.setUint16(26,nb.length,true);
+  parts.push(new Uint8Array(lh.buffer),nb,d);
+  const ch=new DataView(new ArrayBuffer(46));
+  ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);ch.setUint16(8,0x0800,true);ch.setUint16(14,0x21,true);ch.setUint32(16,c,true);ch.setUint32(20,d.length,true);ch.setUint32(24,d.length,true);ch.setUint16(28,nb.length,true);ch.setUint32(42,off,true);
+  cd.push(new Uint8Array(ch.buffer),nb);
+  off+=30+nb.length+d.length;
+ }
+ const cdl=cd.reduce((a,b)=>a+b.length,0),e=new DataView(new ArrayBuffer(22));
+ e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cdl,true);e.setUint32(16,off,true);
+ return new Blob([...parts,...cd,new Uint8Array(e.buffer)]);
+}
+function toDocx(){
+ const W='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"';
+ return zip([
+  ['[Content_Types].xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>'],
+  ['_rels/.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>'],
+  ['word/document.xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document '+W+'><w:body>'+docxBody()+'<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>']
+ ]);
+}
+
+/* ---- guardar ---- */
+function say(t,err){const m=$('msg');m.textContent=t;m.className=err?'err':''}
+async function dl(name,make){
+ if(!$('coord').value.trim()){say('Antes de guardar, asignen un coordinador/a del equipo.',1);return}
+ let d=null;try{d=await claude.use('downloads')}catch(e){}
+ const data=make();
+ if(d){
+  try{await d.save({filename:name,data});say('✔ Archivo listo: '+name)}
+  catch(e){say(e&&e.code==='declined'?'Descarga cancelada.':'No se pudo guardar ('+(e&&e.code||'error')+').',1)}
+  return;
+ }
+ const blob=data instanceof Blob?data:new Blob([data],{type:'text/plain;charset=utf-8'});
+ const a=document.createElement('a');
+ a.href=URL.createObjectURL(blob);a.download=name;
+ document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+ say('✔ Archivo descargado: '+name);
+}
+const fn=ext=>{const n=$('coord').value.trim().split(/[,;]/)[0].replace(/[^\wÁÉÍÓÚáéíóúñÑ ]/g,'').trim().replace(/\s+/g,'_');return 'Fase2_Diseno_IA'+(n?'_'+n:'')+'.'+ext};
+$('bDocx').onclick=()=>dl(fn('docx'),toDocx);
+$('bTxt').onclick=()=>dl(fn('txt'),toTxt);
+$('bPrint').onclick=()=>{try{window.print()}catch(e){say('Imprimir no está disponible en esta vista.',1)}};
+$('bClear').onclick=()=>{if(!confirm('¿Borrar todo tu trabajo de esta fase?'))return;F.forEach(k=>$(k).value='');$('bit').innerHTML='';addRow();save();say('Trabajo borrado.')};
+</script>
+</body>
+</html>
