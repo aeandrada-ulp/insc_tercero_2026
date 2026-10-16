@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Fase 3 – Prototipado y Prueba</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f7f6f2;--card:#fff;--ink:#1d2433;--mute:#5d6678;--acc:#1f6feb;--acc2:#e8f0fe;--line:#dcdfe6;--ok:#1a7f4b}
+@media (prefers-color-scheme:dark){:root{--bg:#12161f;--card:#1b2130;--ink:#e8ebf2;--mute:#9aa4b8;--acc:#6aa3ff;--acc2:#22304d;--line:#2d3649;--ok:#4cc38a}}
+html{scroll-padding-top:70px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--acc);color:#fff;padding:30px 20px;text-align:center}
+header a{color:#fff;opacity:.9;font-size:.9rem}
+header small{opacity:.9;letter-spacing:.08em;text-transform:uppercase}
+header h1{margin:6px 0 4px;font-size:1.7rem;line-height:1.25}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;padding:8px 12px;justify-content:center}
+nav a{white-space:nowrap;color:var(--ink);text-decoration:none;padding:6px 12px;border-radius:99px;font-size:.9rem}
+nav a:hover{background:var(--acc2)}
+nav a.home{font-weight:700;color:var(--acc)}
+main{max-width:820px;margin:0 auto;padding:20px 16px 60px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:18px 0}
+h2{margin:0 0 10px;font-size:1.35rem}
+h3{margin:18px 0 6px;font-size:1.1rem;color:var(--acc)}
+.callout{background:var(--acc2);border-left:4px solid var(--acc);padding:10px 14px;border-radius:8px;margin:12px 0}
+pre{background:var(--acc2);padding:12px 14px;border-radius:8px;overflow-x:auto;font-size:.88rem;line-height:1.5}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+td:first-child{font-weight:600;background:var(--acc2)}
+label{display:block;font-weight:600;margin:14px 0 4px;font-size:.95rem}
+input,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+input:focus,textarea:focus{outline:2px solid var(--acc);border-color:transparent}
+textarea{min-height:76px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.br{border:1px dashed var(--line);border-radius:10px;padding:4px 12px 12px;margin:12px 0}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+button{font:inherit;font-weight:600;border:0;border-radius:10px;padding:11px 18px;cursor:pointer;background:var(--acc);color:#fff}
+button.alt{background:var(--acc2);color:var(--acc)}
+#msg{margin-top:12px;min-height:1.4em;color:var(--ok);font-weight:600}
+#msg.err{color:#d1453b}
+.pie-nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:22px}
+.pie-nav a{text-decoration:none;font-weight:600;border-radius:10px;padding:11px 18px;background:var(--acc2);color:var(--acc)}
+footer{text-align:center;color:var(--mute);font-size:.85rem;padding:0 16px 30px;line-height:1.7}
+.pv{display:none}
+@media print{
+ nav,.btns,.pie-nav,#msg,header a{display:none!important}
+ body{background:#fff;color:#000;font-size:12pt}
+ header{background:#fff;color:#000;padding:0 0 10pt;border-bottom:1px solid #999}
+ main{max-width:none;padding:0}
+ section{border:0;border-radius:0;padding:0;margin:0 0 14pt;break-inside:auto}
+ h2,h3{break-after:avoid}
+ p,li,tr,.br,.callout{break-inside:avoid}
+ .tw{overflow:visible}
+ table{min-width:0;table-layout:fixed}
+ th,td{overflow-wrap:anywhere;word-break:break-word}
+ pre{white-space:pre-wrap;overflow:visible;word-break:break-word}
+ input,textarea{display:none!important}
+ .pv{display:block;white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #999;border-radius:6px;padding:6px 9px;margin:0 0 6pt}
+}
+</style>
+</head>
+<body>
+<header><a href="index.html">← Todas las fases</a><br><small>Soluciones con sentido: innovación para mi comunidad · Fase 3</small><h1>Prototipado y Prueba</h1><div>Educación Tecnológica y Ciencias de la Computación · 3.er Año A / B</div></header>
+<nav><a class="home" href="index.html">← Fases</a><a href="#s0">0. Equipo</a><a href="#s1">1. Organizar</a><a href="#s2">2. Prototipo</a><a href="#s3">3. Pruebas</a><a href="#s4">4. IA</a><a href="#s5">5. IPI</a><a href="#s6">6. Actividades</a><a href="#act">Mi trabajo</a></nav>
+<main>
+<div id="content"></div>
+<section id="act">
+<h2>✍️ Mi trabajo del equipo</h2>
+<p>Lo que escribas se guarda solo en este navegador. Al terminar, descargalo y entregalo como indique la docente.</p>
+<h3>Equipo y roles</h3>
+<div class="row"><div><label for="curso">Curso</label><input id="curso"></div><div><label for="coord">Coordinador/a de la Fase 3</label><input id="coord"></div></div>
+<div id="equipoBox"></div>
+<h3>Actividad 1 · Organización de la solución</h3>
+<label for="v">Variables y datos (nombre significativo → qué guarda)</label><textarea id="v" style="min-height:110px"></textarea>
+<label for="mod">Módulos en que dividimos la solución (nombre → qué hace)</label><textarea id="mod" style="min-height:110px"></textarea>
+<h3>Actividad 2 · Prototipo</h3>
+<div class="row"><div><label for="tool">Herramienta (Scratch, Arduino, simulador)</label><input id="tool"></div><div><label for="link">Enlace al proyecto (si está en línea)</label><input id="link"></div></div>
+<label for="func">¿Cómo funciona nuestro prototipo? (entradas, proceso y salidas)</label><textarea id="func"></textarea>
+<h3>Actividad 3 · Pruebas y mejora</h3>
+<div id="tst"></div>
+<div class="btns"><button class="alt" id="tAdd">+ Agregar prueba</button></div>
+<label for="err">Error o mejora que identificamos</label><textarea id="err"></textarea>
+<label for="causa">¿Por qué ocurría? (causa)</label><textarea id="causa"></textarea>
+<label for="mejora">Modificación que hicimos y resultado</label><textarea id="mejora"></textarea>
+<h3>Bitácora de Uso de IA (continúa la de la Fase 2)</h3>
+<div id="bit"></div>
+<div class="btns"><button class="alt" id="bAdd">+ Agregar fila a la bitácora</button></div>
+<h3>Actividad 4 · Preparación de la IPI</h3>
+<label for="i1">1. El problema que abordamos</label><textarea id="i1"></textarea>
+<label for="i2">2. La solución que desarrollamos</label><textarea id="i2"></textarea>
+<label for="i3">3. Cómo funciona el prototipo</label><textarea id="i3"></textarea>
+<label for="i4">4. Cómo usamos la IA durante el proceso</label><textarea id="i4"></textarea>
+<label for="cumpl">Cumplimiento de tareas del equipo (qué entregó cada integrante)</label><textarea id="cumpl"></textarea>
+<div class="btns">
+<button id="bDocx">⬇ Guardar en Word (.docx)</button>
+<button id="bTxt" class="alt">⬇ Guardar en texto (.txt)</button>
+<button id="bPrint" class="alt">🖨 Imprimir / PDF</button>
+<button id="bClear" class="alt">Borrar mi trabajo</button>
+</div>
+<div id="msg" role="status"></div>
+<div class="pie-nav"><a href="fase2.html">← Fase 2</a><a href="index.html">Todas las fases</a></div>
+</section>
+</main>
+<footer>Fase 3 · Instituto Nuestra Señora del Carmen · Uso exclusivo institucional<br>Diseñado por Esp. Ing. Astri Edith Andrada Tivani · 3.er año, nivel secundario</footer>
+<script>
+const DOC_TITLE="Fase 3 - Prototipado y Prueba";
+const C=[
+{t:'h2',id:'s0',x:'0. Equipo y plan de la fase'},
+{t:'p',x:'En esta fase construyen y prueban el prototipo. **Vale el 40 % de la calificación del núcleo:** se evalúa que la solución funcione, que use estructuras básicas de programación o lógica y que el grupo sepa **realizar mejoras**.'},
+{t:'ul',i:['Mantengan un **coordinador/a** y roles definidos. Pueden **rotar** los de la Fase 2 para que todos practiquen.','Cada integrante escribe la responsabilidad concreta que asume.','Todos deben entender el proyecto completo: la presentación final (IPI) es individual.']},
+{t:'h2',id:'s1',x:'1. Antes de prototipar: organizar la solución'},
+{t:'h3',x:'1.1. Variables y datos con nombres significativos'},
+{t:'p',x:'Una **variable** guarda un dato que el programa usa (la lectura de un sensor, un contador, un tiempo). Un nombre claro permite que cualquiera entienda el programa sin preguntar.'},
+{t:'table',rows:[['Nombre poco claro','Nombre significativo','Qué guarda'],['x','nivel_luz','Lectura del sensor de luz'],['a','distancia_cm','Distancia medida, en centímetros'],['t','tiempo_espera','Segundos que la luz queda encendida'],['c','turno_actual','Número de turno que se muestra']]},
+{t:'ul',i:['Usen palabras que digan **qué es** el dato, sin espacios (nivel_luz).','Escriban siempre el mismo nombre para el mismo dato.','Los valores fijos (como 400 o 10) se guardan en una variable con nombre, por ejemplo umbral_luz.']},
+{t:'h3',x:'1.2. Modularidad: dividir en partes'},
+{t:'p',x:'Un **módulo** es una parte del programa que hace **una sola tarea** y tiene nombre propio. Dividir en módulos permite probar cada parte por separado y encontrar errores más rápido. En Scratch son los bloques propios ("Definir"); en Arduino, las funciones.'},
+{t:'code',x:'// Variables con nombres significativos\nEstablecer umbral_luz = 400\nEstablecer tiempo_espera = 10\n\nMÓDULO medir_luz():\n    devolver lectura de Sensor_LDR\n\nMÓDULO detectar_presencia():\n    devolver lectura de Sensor_PIR\n\nMÓDULO encender_luz():\n    Activar Tira_LED\n    Esperar tiempo_espera\n    Desactivar Tira_LED\n\nPROGRAMA PRINCIPAL:\n    REPETIR CONTINUAMENTE:\n        SI detectar_presencia() Y medir_luz() < umbral_luz ENTONCES:\n            encender_luz()'},
+{t:'h3',x:'1.3. Manejo de eventos'},
+{t:'p',x:'Un **evento** es algo que ocurre y hace que el programa reaccione: presionar un botón, detectar una señal, recibir un dato. En lugar de repetir siempre lo mismo, el programa **espera** el evento y entonces actúa.'},
+{t:'code',x:'// Sistema de turnos para la biblioteca\nEstablecer turno_actual = 0\n\nAL PRESIONAR boton_turno:\n    turno_actual = turno_actual + 1\n    Mostrar "Turno: " + turno_actual en pantalla_LCD\n    Encender led_aviso por 1 segundo'},
+{t:'h2',id:'s2',x:'2. Prototipado funcional'},
+{t:'p',x:'Un **prototipo** es una primera versión que funciona, aunque sea simple: un programa, una simulación o un dispositivo. Pueden usar **Scratch**, **Arduino** (con un simulador en línea como Wokwi o Tinkercad) u otro simulador acordado con la docente.'},
+{t:'ul',i:['Empiecen por una versión mínima que cumpla lo esencial y mejórenla de a poco.','Construyan **módulo por módulo** y prueben cada uno antes de pasar al siguiente.','Respeten el diseño de la Fase 2. Si lo cambian, anoten qué cambió y por qué.','Guarden el proyecto y su enlace (o capturas) como evidencia.']},
+{t:'h2',id:'s3',x:'3. Ciclo de prueba y mejora'},
+{t:'ul',i:['**Testeo:** ejecutar el prototipo para verificar que funcione como se esperaba.','**Depuración (debugging):** encontrar y corregir errores de lógica o de diseño.','**Optimización:** proponer y hacer modificaciones para perfeccionar el prototipo.']},
+{t:'h3',x:'Ejemplo de registro de pruebas'},
+{t:'table',rows:[['Prueba','Qué esperábamos','Qué pasó','Decisión'],['1. Persona con poca luz','La luz se enciende','Se encendió','Funciona'],['2. Persona con mucha luz','La luz no se enciende','Se encendió igual','Error: revisar el valor de umbral_luz']]},
+{t:'note',x:'**Registro de un error:** el sensor marcaba mucha luz y la luz se encendía igual. **Causa:** el umbral estaba en 800 y no en 400. **Mejora:** se cambió umbral_luz a 400 y se repitió la prueba 2, que dio el resultado esperado. Deben identificar **al menos un error o mejora** y proponer una modificación.'},
+{t:'h2',id:'s4',x:'4. La IA como herramienta de apoyo: uso ético y responsable'},
+{t:'ul',i:['**Verificar:** una respuesta de la IA puede estar equivocada. Probenla en el prototipo antes de aceptarla.','**No depender:** la IA sugiere, el grupo decide. Cada decisión debe poder justificarse.','**Entender lo que usan:** si no pueden explicar un código o una idea, no la incorporen.','**Cuidar los datos:** no escriban nombres completos, datos personales ni información privada de compañeros o familias.','**Decir cuándo se usó:** todo uso de IA queda registrado en la bitácora.']},
+{t:'p',x:'Ejemplo de prompt R.C.I.F. para depurar: "Actúa como tutor de programación [ROL]. Mi programa de turnos suma 2 en lugar de 1 cada vez que presiono el botón [CONTEXTO]. Te paso mi lógica: [pegar]. Explícame dónde puede estar el error sin darme el programa resuelto [INSTRUCCIÓN]. Responde en pasos cortos [FORMATO]."'},
+{t:'note',x:'En la bitácora de esta fase agreguen siempre: **¿cómo comprobamos que la respuesta era correcta?** Continúen la numeración de la Fase 2.'},
+{t:'h2',id:'s5',x:'5. Preparación de la presentación final (IPI)'},
+{t:'p',x:'La **Instancia de Producción Individual (IPI)** vale el **30 %** de la calificación. Es una presentación oral en el aula en la que **cada estudiante** explica:'},
+{t:'ol',i:['**El problema** que abordó el grupo y a quiénes afecta.','**La solución** desarrollada y por qué es viable.','**El funcionamiento del prototipo**: entradas, módulos, decisiones y salidas.','**El uso de la IA** durante el proceso: qué preguntaron, qué respondieron y qué decidieron.']},
+{t:'ul',i:['Se valora que puedan **fundamentar decisiones** y describir el proceso, incluidos los errores y las mejoras.','Cada integrante debe poder explicar todo el proyecto, no solo su parte.','La evaluación puede ser escrita u oral, según las posibilidades de cada estudiante.']},
+{t:'h2',id:'s6',x:'6. Guía de actividades prácticas'},
+{t:'h3',x:'📝 Actividad 1: organizar la solución'},
+{t:'p',x:'Tomen el pseudocódigo de la Fase 2. Listen las **variables** con nombres significativos y dividan la solución en **módulos**, indicando qué hace cada uno.'},
+{t:'h3',x:'📝 Actividad 2: construir el prototipo'},
+{t:'p',x:'Desarrollen el prototipo con la herramienta elegida, módulo por módulo. Incluyan al menos una **estructura de control** (condicional o bucle) y, si corresponde, un **evento**.'},
+{t:'h3',x:'📝 Actividad 3: probar, depurar y mejorar'},
+{t:'p',x:'Registren sus pruebas, encuentren **al menos un error o mejora**, corrijan y vuelvan a probar. Anoten la causa y el resultado.'},
+{t:'h3',x:'📝 Actividad 4: preparar la IPI'},
+{t:'p',x:'Completen el guion de los cuatro puntos y ensayen la presentación. Descarguen el archivo y entréguenlo por el medio que indique la docente.'}
+];
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const md=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+const plain=s=>s.replace(/\*\*/g,'');
+(function(){
+ let h='',open=false;
+ for(const b of C){
+  if(b.t==='h2'){if(open)h+='</section>';h+=`<section${b.id?` id="${b.id}"`:''}><h2>${md(b.x)}</h2>`;open=true}
+  else if(b.t==='h3')h+=`<h3>${md(b.x)}</h3>`;
+  else if(b.t==='p')h+=`<p>${md(b.x)}</p>`;
+  else if(b.t==='note')h+=`<div class="callout">${md(b.x)}</div>`;
+  else if(b.t==='code')h+=`<pre>${esc(b.x)}</pre>`;
+  else if(b.t==='ul')h+='<ul>'+b.i.map(i=>`<li>${md(i)}</li>`).join('')+'</ul>';
+  else if(b.t==='ol')h+='<ol>'+b.i.map(i=>`<li>${md(i)}</li>`).join('')+'</ol>';
+  else if(b.t==='table')h+='<div class="tw"><table>'+b.rows.map((r,n)=>'<tr>'+r.map(c=>n?`<td>${md(c)}</td>`:`<th>${md(c)}</th>`).join('')+'</tr>').join('')+'</table></div>';
+ }
+ if(open)h+='</section>';
+ $('content').innerHTML=h;
+})();
+
+/* ---- trabajo del equipo ---- */
+const M=[1,2,3,4,5];
+const F=['curso','coord','v','mod','tool','link','func','err','causa','mejora','i1','i2','i3','i4','cumpl',...M.flatMap(k=>['m'+k+'n','m'+k+'r','m'+k+'t'])];
+const L={v:'Variables y datos',mod:'Módulos de la solución',tool:'Herramienta',link:'Enlace al proyecto',func:'Cómo funciona el prototipo',err:'Error o mejora identificada',causa:'Causa',mejora:'Modificación realizada y resultado',i1:'1. El problema que abordamos',i2:'2. La solución que desarrollamos',i3:'3. Cómo funciona el prototipo',i4:'4. Cómo usamos la IA',cumpl:'Cumplimiento de tareas del equipo'};
+$('equipoBox').innerHTML=M.map(k=>`<div class="br"><label>Integrante ${k}${k>1?' (si corresponde)':''}</label><div class="row"><div><label for="m${k}n">Nombre</label><input id="m${k}n"></div><div><label for="m${k}r">Rol</label><input id="m${k}r" list="roles"></div></div><label for="m${k}t">Responsabilidad que asume en esta fase</label><textarea id="m${k}t" style="min-height:56px"></textarea></div>`).join('')+'<datalist id="roles"><option value="Coordinador/a"><option value="Responsable de diseño lógico"><option value="Responsable de IA y bitácora"><option value="Responsable de documentación"><option value="Responsable de pruebas y materiales"></datalist>';
+function mk(box,labels,ta){
+ const el=$(box);
+ const num=()=>el.querySelectorAll('.n').forEach((s,k)=>s.textContent=k+1);
+ const add=(v=[])=>{const d=document.createElement('div');d.className='br';d.innerHTML='<label>Fila <span class="n"></span></label>'+labels.map((l,k)=>`<label>${l}</label>${k>=ta?'<textarea></textarea>':'<input>'}`).join('');d.querySelectorAll('input,textarea').forEach((e,k)=>{e.value=v[k]||'';e.addEventListener('input',save)});el.appendChild(d);num()};
+ const get=()=>[...el.querySelectorAll('.br')].map(d=>[...d.querySelectorAll('input,textarea')].map(e=>e.value.trim()));
+ return{add,get,el};
+}
+const TL=['Prueba','Qué esperábamos','Qué pasó','Decisión'];
+const BL=['N.º (continúa la Fase 2)','Fecha','Integrante a cargo','Prompt enviado (texto exacto)','Respuesta / sugerencia de la IA (resumen)','Evaluación y decisión del grupo','¿Cómo comprobamos que la respuesta era correcta?'];
+const T=mk('tst',TL,1),B=mk('bit',BL,3);
+function save(){try{localStorage.setItem('n4f3',JSON.stringify({f:Object.fromEntries(F.map(k=>[k,$(k).value])),b:B.get(),t:T.get()}))}catch(e){}}
+try{const s=JSON.parse(localStorage.getItem('n4f3')||'{}');F.forEach(k=>{if(s.f&&s.f[k])$(k).value=s.f[k]});(s.b||[]).forEach(r=>B.add(r));(s.t||[]).forEach(r=>T.add(r))}catch(e){}
+if(!B.el.querySelector('.br'))B.add();
+if(!T.el.querySelector('.br'))T.add();
+F.forEach(k=>$(k).addEventListener('input',save));
+$('bAdd').onclick=()=>{B.add();save()};
+$('tAdd').onclick=()=>{T.add();save()};
+function answers(){
+ const g=k=>$(k).value.trim()||'(sin completar)',o=[];
+ o.push(['#Equipo y roles',''],['Curso',g('curso')],['Coordinador/a de la Fase 3',g('coord')]);
+ M.forEach(k=>{if($('m'+k+'n').value.trim())o.push(['#Integrante '+k,''],['Nombre',g('m'+k+'n')],['Rol',g('m'+k+'r')],['Responsabilidad asumida',g('m'+k+'t')])});
+ o.push(['#Actividad 1 – Organización de la solución','']);['v','mod'].forEach(k=>o.push([L[k],g(k)]));
+ o.push(['#Actividad 2 – Prototipo','']);['tool','link','func'].forEach(k=>o.push([L[k],g(k)]));
+ o.push(['#Actividad 3 – Pruebas y mejora','']);
+ T.get().forEach((r,n)=>o.push(['Prueba '+(n+1),TL.map((l,k)=>l+': '+(r[k]||'—')).join(' | ')]));
+ ['err','causa','mejora'].forEach(k=>o.push([L[k],g(k)]));
+ B.get().forEach((r,n)=>{o.push(['#Bitácora de IA – Fila '+(n+1),'']);BL.forEach((l,k)=>o.push([l,r[k]||'(sin completar)']))});
+ o.push(['#Actividad 4 – Preparación de la IPI','']);['i1','i2','i3','i4','cumpl'].forEach(k=>o.push([L[k],g(k)]));
+ return o;
+}
+
+/* ---- exportadores ---- */
+function toTxt(){
+ let o=DOC_TITLE.toUpperCase()+'\n'+'='.repeat(40)+'\n';
+ for(const b of C){
+  if(b.t==='h2')o+='\n\n'+plain(b.x).toUpperCase()+'\n';
+  else if(b.t==='h3')o+='\n'+plain(b.x)+'\n';
+  else if(b.t==='p'||b.t==='note')o+=plain(b.x)+'\n';
+  else if(b.t==='code')o+=b.x+'\n';
+  else if(b.t==='ul')o+=b.i.map(i=>'  • '+plain(i)).join('\n')+'\n';
+  else if(b.t==='ol')o+=b.i.map((i,n)=>`  ${n+1}. `+plain(i)).join('\n')+'\n';
+  else if(b.t==='table')o+=b.rows.slice(1).map(r=>'  • '+r.map(plain).join(' | ')).join('\n')+'\n';
+ }
+ o+='\n\nMI TRABAJO DEL EQUIPO\n'+'='.repeat(40)+'\n';
+ answers().forEach(([l,v])=>{o+=l[0]==='#'?'\n'+l.slice(1)+'\n':'\n'+l+':\n'+v+'\n'});
+ return o+'\nFecha: '+new Date().toLocaleDateString('es-AR')+'\n';
+}
+const X=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function runs(s,o={}){
+ return s.split(/\*\*/).map((t,i)=>{if(!t)return'';const b=(i%2||o.b)?'<w:b/>':'';const fo=o.f?'<w:rFonts w:ascii="Courier New" w:hAnsi="Courier New"/>':'';const c=o.c?`<w:color w:val="${o.c}"/>`:'';const z=o.sz?`<w:sz w:val="${o.sz}"/>`:'';return `<w:r><w:rPr>${fo}${b}${c}${z}</w:rPr><w:t xml:space="preserve">${X(t)}</w:t></w:r>`}).join('');
+}
+function para(s,o={}){const ind=o.ind?`<w:ind w:left="${o.ind}" w:hanging="${o.hang||0}"/>`:'';return `<w:p><w:pPr><w:spacing w:before="${o.bf||0}" w:after="${o.af??120}"/>${ind}</w:pPr>${runs(s,o)}</w:p>`}
+function docxBody(){
+ let b=para(DOC_TITLE,{b:1,sz:34,c:'1F4FA3',af:200});
+ for(const k of C){
+  if(k.t==='h2')b+=para(k.x,{b:1,sz:30,c:'1F4FA3',bf:260,af:100});
+  else if(k.t==='h3')b+=para(k.x,{b:1,sz:26,c:'2B6CB0',bf:160,af:80});
+  else if(k.t==='p')b+=para(k.x,{sz:24});
+  else if(k.t==='note')b+=para(k.x,{sz:24,c:'1F4FA3'});
+  else if(k.t==='code')k.x.split('\n').forEach(l=>b+=para(l.replace(/ /g,'\u00A0'),{sz:20,f:1,af:0}));
+  else if(k.t==='ul')k.i.forEach(i=>b+=para('•\u00A0\u00A0'+i,{sz:24,ind:600,hang:300,af:80}));
+  else if(k.t==='ol')k.i.forEach((i,n)=>b+=para(`${n+1}.\u00A0\u00A0`+i,{sz:24,ind:1000,hang:300,af:80}));
+  else if(k.t==='table'){
+   const n=k.rows[0].length,w=j=>j?Math.floor(6300/(n-1)):2700;
+   const bd=['top','left','bottom','right','insideH','insideV'].map(s=>`<w:${s} w:val="single" w:sz="4" w:color="999999"/>`).join('');
+   b+=`<w:tbl><w:tblPr><w:tblW w:w="9000" w:type="dxa"/><w:tblBorders>${bd}</w:tblBorders></w:tblPr><w:tblGrid>`+k.rows[0].map((_,j)=>`<w:gridCol w:w="${w(j)}"/>`).join('')+'</w:tblGrid>';
+   k.rows.forEach((r,m)=>{b+='<w:tr>'+r.map((c,j)=>`<w:tc><w:tcPr><w:tcW w:w="${w(j)}" w:type="dxa"/>${(m===0||j===0)?'<w:shd w:val="clear" w:color="auto" w:fill="E8F0FE"/>':''}</w:tcPr>${para(c,{sz:22,b:(m===0||j===0),af:60})}</w:tc>`).join('')+'</w:tr>'});
+   b+='</w:tbl>'+para('',{af:60});
+  }
+ }
+ b+=para('Mi trabajo del equipo',{b:1,sz:30,c:'1F4FA3',bf:360,af:100});
+ answers().forEach(([l,v])=>{
+  if(l[0]==='#')b+=para(l.slice(1),{b:1,sz:26,c:'2B6CB0',bf:200,af:60});
+  else{b+=para('**'+l+':**',{sz:24,af:30});v.split('\n').forEach(x=>b+=para(x,{sz:24,af:40,c:v.startsWith('(sin')?'888888':'000000'}))}
+ });
+ return b+para('Fecha: '+new Date().toLocaleDateString('es-AR'),{sz:20,c:'666666',bf:200});
+}
+function crc(b){let t=crc.t;if(!t){t=crc.t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}}let r=-1;for(let i=0;i<b.length;i++)r=t[(r^b[i])&255]^(r>>>8);return(r^-1)>>>0}
+function zip(files){
+ const enc=new TextEncoder(),parts=[],cd=[];let off=0;
+ for(const[name,str]of files){
+  const nb=enc.encode(name),d=enc.encode(str),c=crc(d);
+  const lh=new DataView(new ArrayBuffer(30));
+  lh.setUint32(0,0x04034b50,true);lh.setUint16(4,20,true);lh.setUint16(6,0x0800,true);lh.setUint16(12,0x21,true);lh.setUint32(14,c,true);lh.setUint32(18,d.length,true);lh.setUint32(22,d.length,true);lh.setUint16(26,nb.length,true);
+  parts.push(new Uint8Array(lh.buffer),nb,d);
+  const ch=new DataView(new ArrayBuffer(46));
+  ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);ch.setUint16(8,0x0800,true);ch.setUint16(14,0x21,true);ch.setUint32(16,c,true);ch.setUint32(20,d.length,true);ch.setUint32(24,d.length,true);ch.setUint16(28,nb.length,true);ch.setUint32(42,off,true);
+  cd.push(new Uint8Array(ch.buffer),nb);
+  off+=30+nb.length+d.length;
+ }
+ const cdl=cd.reduce((a,b)=>a+b.length,0),e=new DataView(new ArrayBuffer(22));
+ e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cdl,true);e.setUint32(16,off,true);
+ return new Blob([...parts,...cd,new Uint8Array(e.buffer)]);
+}
+function toDocx(){
+ const W='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"';
+ return zip([
+  ['[Content_Types].xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>'],
+  ['_rels/.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>'],
+  ['word/document.xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document '+W+'><w:body>'+docxBody()+'<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>']
+ ]);
+}
+
+/* ---- guardar e imprimir ---- */
+function say(t,err){const m=$('msg');m.textContent=t;m.className=err?'err':''}
+async function dl(name,make){
+ if(!$('coord').value.trim()){say('Antes de guardar, asignen un coordinador/a del equipo.',1);return}
+ let d=null;try{d=await claude.use('downloads')}catch(e){}
+ const data=make();
+ if(d){
+  try{await d.save({filename:name,data});say('✔ Archivo listo: '+name)}
+  catch(e){say(e&&e.code==='declined'?'Descarga cancelada.':'No se pudo guardar ('+(e&&e.code||'error')+').',1)}
+  return;
+ }
+ const blob=data instanceof Blob?data:new Blob([data],{type:'text/plain;charset=utf-8'});
+ const a=document.createElement('a');
+ a.href=URL.createObjectURL(blob);a.download=name;
+ document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+ say('✔ Archivo descargado: '+name);
+}
+const fn=ext=>{const n=$('coord').value.trim().split(/[,;]/)[0].replace(/[^\wÁÉÍÓÚáéíóúñÑ ]/g,'').trim().replace(/\s+/g,'_');return 'Fase3_Prototipo'+(n?'_'+n:'')+'.'+ext};
+$('bDocx').onclick=()=>dl(fn('docx'),toDocx);
+$('bTxt').onclick=()=>dl(fn('txt'),toTxt);
+function cleanPrint(){document.querySelectorAll('.pv').forEach(d=>d.remove())}
+function prepPrint(){
+ cleanPrint();
+ document.querySelectorAll('input,textarea').forEach(e=>{
+  const d=document.createElement('div');d.className='pv';
+  d.textContent=e.value.trim()?e.value:'\u00A0';
+  e.insertAdjacentElement('afterend',d);
+ });
+}
+window.addEventListener('beforeprint',prepPrint);
+window.addEventListener('afterprint',cleanPrint);
+$('bPrint').onclick=()=>{try{prepPrint();window.print()}catch(e){say('Imprimir no está disponible en esta vista.',1)}};
+$('bClear').onclick=()=>{if(!confirm('¿Borrar todo tu trabajo de esta fase?'))return;F.forEach(k=>$(k).value='');B.el.innerHTML='';T.el.innerHTML='';B.add();T.add();save();say('Trabajo borrado.')};
+</script>
+</body>
+</html>
